@@ -1,0 +1,19 @@
+<div>
+  <%= form_for '', html: { :method => :get, :class=> "form-inline" },  :url => { :controller => "books", :action => "index"} do |f| %>
+    <div class="col-lg-12" align="center">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          
+          <div class="form-group">
+              <div class="input-group">
+                <%= f.text_field :search, :class=>"form-control lg", :placeholder=>"Titulo del libro", :value => @search %> 
+              </div>
+          </div>               
+                                    
+          <%= submit_tag "Búsqueda", :class=>"btn btn-primary" , "data-loading-text"=>"Procesando...", :onclick=>"$(this).button('loading');"%>
+          <%= link_to 'Limpiar'.html_safe, books_path,'data-no-turbolink' => true, class:"btn btn-primary"%>
+          <%= link_to 'Agregar libro', new_book_path, class: 'btn btn-success' %>
+        </div>
+    </div>      
+  <% end %>
+</div>
